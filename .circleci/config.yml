@@ -51,6 +51,9 @@ jobs:
       docker:
         - image: node:8.10.0
       steps:
+        - add_ssh_keys:
+            fingerprints:
+              - $PROJ_FINGERPRINT
         - checkout
         - attach_workspace:
             at: ~/
