@@ -62,7 +62,7 @@ jobs:
               git config user.name "Dadlo"
         - run:
             name: Deploy docs to gh-pages branch
-            command: gh-pages --dist ~/public
+            command: gh-pages --dist ../public
 
 workflows:
   version: 2
