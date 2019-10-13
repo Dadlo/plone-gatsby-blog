@@ -8,7 +8,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-plone',
       options: {
-        baseUrl: 'http://localhost:8080/Plone/',
+        baseUrl: 'http://69f337f0.ngrok.io/Plone/',
         logLevel: 'DEBUG',
       },
     },
