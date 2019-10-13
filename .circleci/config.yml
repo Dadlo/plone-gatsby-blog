@@ -1,0 +1,83 @@
+version: 2.0
+env_vars: &env_vars
+  environment:
+    - APP_NAME: plone-gatsby-blog
+
+jobs:
+  build-job: &build-job
+    docker:
+      - image: circleci/node:8.11
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - restore_cache:
+          keys:
+          - v1-cache-{{ .BuildNum }}
+          - v1-cache-
+
+      - run:
+          name: Install dependencies
+          command: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run:
+          name: Compile gatsbyjs site
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              npm run build
+
+      - save_cache:
+          paths:
+            - .cache
+            - public
+          key: v1-cache-{{ .BuildNum }}
+
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - public
+
+  deploy: &deploy
+      docker:
+        - image: node:8.10.0
+      steps:
+        - checkout
+        - attach_workspace:
+            at: ~/
+        - run:
+            name: Install and configure dependencies
+            command: |
+              npm install -g --silent gh-pages@2.0.1
+              git config user.email "dadlobr@gmail.com"
+              git config user.name "Dadlo"
+        - run:
+            name: Deploy docs to gh-pages branch
+            command: gh-pages --dist ~/public
+
+workflows:
+  version: 2
+  build_and_deploy: &build_and_deploy
+    jobs:
+      - build-job:
+          filters:
+            branches:
+              only: master
+
+      - deploy:
+          filters:
+            branches:
+              only: master
+          requires:
+             - build-job
