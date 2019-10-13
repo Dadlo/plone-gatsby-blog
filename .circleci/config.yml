@@ -34,9 +34,7 @@ jobs:
 
       - run:
           name: Compile gatsbyjs site
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              npm run build
+          command: npm run build
 
       - save_cache:
           paths:
