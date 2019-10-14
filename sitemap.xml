@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/about-us/about-us/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/front-page/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/events/plone-conf-2019/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/about-us/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/events/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/files/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/news/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/news/article-by-danilo/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/news/copy2_of_article-by-danilo/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/news/copy3_of_article-by-danilo/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/news/copy4_of_article-by-danilo/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/news/copy_of_article-by-danilo/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dadlo.github.io/plone-gatsby-blog/plone-gatsby-blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>

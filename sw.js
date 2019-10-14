@@ -32,25 +32,25 @@ self.__precacheManifest = [
     "url": "commons.9d445302dd53e788c8ba.css"
   },
   {
-    "url": "commons-fab47762f4a908fa87a6.js"
+    "url": "commons-96a33dc11baef30ee2f3.js"
   },
   {
-    "url": "app-261b72868b27b4a7025b.js"
+    "url": "app-397fefaf278455987174.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-2a95469f1f29dead58a3.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "fb8fb1541374213b1a2e4ed312b9cb1e"
+    "revision": "0a42e5fc629170ec2c1077c8928eb663"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "04168749fdb39f35f50ff19e57d25962"
+    "revision": "a248cd80595f7d706b8cc0e7d371dd68"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "4ef870e9a3fb53b1bea01a715759851f"
+    "revision": "1094c7220ba9f1df84deda6091bf8bd7"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
@@ -74,7 +74,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/plone-gatsby-blog/app-261b72868b27b4a7025b.js`))) {
+  if (!resources || !(await caches.match(`/plone-gatsby-blog/app-397fefaf278455987174.js`))) {
     return await fetch(event.request)
   }
 
