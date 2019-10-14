@@ -26,27 +26,31 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-e6242e7f99ea8b98392e.js"
+    "url": "webpack-runtime-b80fee1a5244d35254f8.js"
   },
   {
     "url": "commons.9d445302dd53e788c8ba.css"
   },
   {
-    "url": "commons-a5869205f9c0ea4230d0.js"
+    "url": "commons-fc238d1946d0816cd475.js"
   },
   {
-    "url": "app-8c91a2b86eb9fbe1892b.js"
+    "url": "app-261b72868b27b4a7025b.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-2a95469f1f29dead58a3.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "33a0a25e4dbf2797cd49db1a2a557c26"
+    "revision": "eccda05249eb9bc3087844ae5b6ab6a0"
+  },
+  {
+    "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
+    "revision": "c24f127da411f517d6abe4fc2f63e59d"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "2cef1bfed0778bffc716afd4a35e452e"
+    "revision": "4ef870e9a3fb53b1bea01a715759851f"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
@@ -65,12 +69,12 @@ const { NavigationRoute } = workbox.routing
 
 const navigationRoute = new NavigationRoute(async ({ event }) => {
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^`), ``)
+  pathname = pathname.replace(new RegExp(`^/plone-gatsby-blog`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-8c91a2b86eb9fbe1892b.js`))) {
+  if (!resources || !(await caches.match(`/plone-gatsby-blog/app-261b72868b27b4a7025b.js`))) {
     return await fetch(event.request)
   }
 
@@ -83,7 +87,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/plone-gatsby-blog/offline-plugin-app-shell-fallback/index.html`
   return await caches.match(offlineShell)
 })
 
