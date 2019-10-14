@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Kickstart Gatsby static site development with Plone',
-    subTitle: 'Plone + Gatsby = \u2764',
+    title: 'Plone Gatsby Blog',
+    subTitle: 'Blog made with Plone + Gatsby',
   },
-  pathPrefix: '/plone-gatsby-blog/',
+  pathPrefix: `/plone-gatsby-blog`,
   plugins: [
     {
       resolve: 'gatsby-source-plone',
@@ -21,7 +21,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Gatsby Starter Plone',
+        name: 'Plone Gatsby Blog',
         short_name: 'Plone',
         start_url: '/',
         background_color: '#ffffff',
