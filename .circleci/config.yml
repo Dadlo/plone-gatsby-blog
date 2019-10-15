@@ -4,9 +4,14 @@ env_vars: &env_vars
     - APP_NAME: plone-gatsby-blog
 
 jobs:
-  build-job: &build-job
+  build_deploy:
     docker:
       - image: circleci/node:8.11
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - $PROJ_FINGERPRINT
 
     working_directory: ~/repo
 
@@ -33,6 +38,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: Run tests
+          command: npm run test
+
+      - run:
           name: Compile gatsbyjs site
           command: npm run build
 
@@ -47,38 +56,21 @@ jobs:
           paths:
             - public
 
-  deploy: &deploy
-      docker:
-        - image: node:8.10.0
-      steps:
-        - add_ssh_keys:
-            fingerprints:
-              - $PROJ_FINGERPRINT
-        - checkout
-        - attach_workspace:
-            at: ~/
-        - run:
-            name: Install and configure dependencies
-            command: |
-              npm install -g --silent gh-pages@2.0.1
-              git config user.email "dadlobr@gmail.com"
-              git config user.name "Dadlo"
-        - run:
-            name: Deploy docs to gh-pages branch
-            command: gh-pages --message "[skip ci] Updates" --dist ../public
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "dadlobr@gmail.com"
+            git config user.name "Dadlo"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages --message "[skip ci] Updates" --dist ../public
 
 workflows:
   version: 2
-  build_and_deploy: &build_and_deploy
+  build_and_deploy:
     jobs:
-      - build-job:
+      - build_deploy:
           filters:
             branches:
               only: master
-
-      - deploy:
-          filters:
-            branches:
-              only: master
-          requires:
-             - build-job
