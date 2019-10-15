@@ -8,14 +8,13 @@ jobs:
     docker:
       - image: circleci/node:8.11
 
+    working_directory: ~/repo
+
     steps:
       - add_ssh_keys:
           fingerprints:
             - $PROJ_FINGERPRINT
 
-    working_directory: ~/repo
-
-    steps:
       - checkout
 
       - restore_cache:
