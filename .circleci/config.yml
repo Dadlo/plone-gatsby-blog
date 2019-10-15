@@ -22,11 +22,6 @@ jobs:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
 
-      - restore_cache:
-          keys:
-          - v1-cache-{{ .BuildNum }}
-          - v1-cache-
-
       - run:
           name: Install dependencies
           command: npm install
@@ -40,14 +35,8 @@ jobs:
           name: Compile gatsbyjs site
           command: npm run build
 
-      - save_cache:
-          paths:
-            - .cache
-            - public
-          key: v1-cache-{{ .BuildNum }}
-
       - run:
-          name: Install and configure dependencies
+          name: Install and configure dependencies for gh-pages
           command: |
             sudo npm install -g --silent gh-pages@2.0.1
             git config user.email "dadlobr@gmail.com"
